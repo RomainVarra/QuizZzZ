@@ -1,0 +1,14 @@
+:root {
+    --primary-color: #33B1B4;
+    --secondary-color: #9177a1; 
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: solid red 1px;
+    
+}
+body{
+    background: linear-gradient( var(--primary-color), var(--secondary-color));
+}
