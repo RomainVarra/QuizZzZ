@@ -1,14 +1,85 @@
+@font-face {
+    font-family: Audiowide ;
+    src: url(./Public/Fonts/Audiowide/Audiowide-Regular.ttf);
+}
 :root {
     --primary-color: #33B1B4;
     --secondary-color: #9177a1; 
+    --light-color: #f5f5f5;
+    --primary-font: Audiowide;
 }
 
 *{
     padding: 0;
     margin: 0;
+    list-style: none;
     outline: solid red 1px;
-    
+    font-family: var(--primary-font);
 }
 body{
     background: linear-gradient( var(--primary-color), var(--secondary-color));
 }
+h1{
+    visibility: hidden;
+    margin-top: -30px;
+    
+
+    @media screen and (min-width:992px){
+        visibility: visible;
+        margin: 0;
+    }
+}
+
+#death, #character{
+    height: 50px;
+  
+}
+#blackHeart, #redHeart{
+    height: 1em;
+}
+
+.gameIcons, .blackHeartClass, .redHeartClass{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+}
+.heartIcons{
+    display: flex;
+    justify-content: space-between;
+}
+.bubleQuestion{
+    background: var(--light-color);
+    margin: 1em 1em 2em 0;
+    padding: 1.7em;
+    border-radius: 25px;
+    text-transform: uppercase;
+}
+#clue{
+    margin: 2.5em 0 0 0;
+    text-transform: lowercase;
+}
+.triangle {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 50px 20px 0;
+    border-color: transparent var(--light-color) transparent transparent;
+    margin-top: 9em;
+     }
+.bubleTriangle{
+    display: flex;
+    }
+.allResponses{
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+.buttonResponse{
+    border-radius: 25px;
+    height: 4em;
+    margin: 0 2em 0 2em;
+    border-color: red green green red;
+}
+

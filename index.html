@@ -15,35 +15,109 @@
     <header>
       <h1>Death QuizZzZ !</h1>
       <ul>
-        <li><img src="./Public/Images/deathPixel_1.png" alt="death" /></li>
-        <li>
-          <img src="./Public/Images/chara-test_1.png" alt="mini character" />
-        </li>
-        <li>
-          <img src="./Public/Images/heart-black-full.png" alt="death lives" />
-        </li>
-        <li>
-          <img
-            src="./Public/Images/heart-red-full.png"
-            alt="mini character lives"
-          />
-        </li>
+        <div class="gameIcons">
+          <li>
+            <img
+              id="death"
+              src="./Public/Images/deathPixel_1.png"
+              alt="death"
+            />
+          </li>
+          <li>
+            <img
+              id="character"
+              src="./Public/Images/chara-test_1.png"
+              alt="mini character"
+            />
+          </li>
+        </div>
+
+        <div class="heartIcons">
+          <li class="blackHeartClass">
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+            <img
+              id="blackHeart"
+              src="./Public/Images/heart-black-full.png"
+              alt="death lives"
+            />
+          </li>
+          <li class="redHeartClass">
+            <img
+              id="redHeart"
+              src="./Public/Images/heart-red-full.png"
+              alt="mini character lives"
+            />
+            <img
+              id="redHeart"
+              src="./Public/Images/heart-red-full.png"
+              alt="mini character lives"
+            />
+            <img
+              id="redHeart"
+              src="./Public/Images/heart-red-full.png"
+              alt="mini character lives"
+            />
+          </li>
+        </div>
       </ul>
     </header>
     <main>
-      <section>
-        <article class="bulleQuestion">
+      <section class="bubleTriangle">
+        <div class="triangle"></div>
+        <article class="bubleQuestion">
           <p>Combien de planètes orbittent autour du soleil ?</p>
-          <p>(on parle bien de planètes...)</p>
+          <p id="clue">(on parle bien de planètes...)</p>
         </article>
       </section>
-      <section>
-        <ul class="allResponses">
-          <li id="responseA">"12"</li>
-          <li id="responseB">"9"</li>
-          <li id="responseC">"8"</li>
-          <li id="responseD">"6"</li>
-        </ul>
+      <section class="allResponses">
+        <button class="buttonResponse" type="button">12</button>
+        <button class="buttonResponse" type="button">9</button>
+        <button class="buttonResponse" type="button">8</button>
+        <button class="buttonResponse" type="button">6</button>
       </section>
     </main>
     <footer>© 2024 QuizZzZ !</footer>
