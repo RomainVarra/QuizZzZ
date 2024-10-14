@@ -1,4 +1,4 @@
-let quiz = [
+let quizList = [
 
     {
         question : "Combien de planètes orbittent autour du soleil ? ",
@@ -55,12 +55,12 @@ let quiz = [
     },
 
     {
-        question : "Quelle est le jour d'anniversaire de mon ami Voldemort ?",
-        clue : "On a vu qu'il y avait des potterhead par ici...",
-        answer1 : ["1er avril", false],
-        answer2 : ["31 décembre", true],
-        answer3 : ["30 octobre", false],
-        answer4 : ["29 février", false]
+        question : "Lequel des ces types de données en Java est utilisé pour stocker un seul caractère ?",
+        clue : "Vous avez bien dit Java ?",
+        answer1 : ["float", false],
+        answer2 : ["char", true],
+        answer3 : ["byte", false],
+        answer4 : ["int", false]
     },
 
     {
