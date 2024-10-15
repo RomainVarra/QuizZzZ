@@ -1,4 +1,4 @@
-let quizList = [
+const quizList = [
 	{
 		question: "Combien de planètes orbittent autour du soleil ? ",
 		clue: "On parle bien de planètes !",
@@ -28,7 +28,8 @@ let quizList = [
 	},
 
 	{
-		question: "Quel réalisateur a créé le célèbre personnage d'Indiana Jones ?",
+		question:
+			"Quel réalisateur a inventé le célèbre personnage d'Indiana Jones ?",
 		clue: "Trop facile !",
 		answer1: ["Georges Lucas", true],
 		answer2: ["Steven Spielberg", false],
