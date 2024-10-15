@@ -37,6 +37,7 @@ function answers (answer){
     bubbleQuestion.classList.add('bubbleQuestion');
     fullBubble.appendChild(bubbleQuestion);
     //Aggrandir la bulle (responsive)
+    
     bubbleQuestion.style.height = '20em';
     bubbleQuestion.style.width = '90%';
     //Style de la bulle (responsive)
