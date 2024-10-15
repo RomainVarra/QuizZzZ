@@ -124,6 +124,8 @@ const quizList = [
 let hearthDeathPoints = 10;
 let hearthCharacterPoints = 3;
 
+
+
 function checkAnswer(answer) {
 	const buttons = document.querySelectorAll(".buttonResponse");
 	const deathHearts = document.querySelectorAll(".blackHeart");
