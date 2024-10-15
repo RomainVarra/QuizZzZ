@@ -94,7 +94,7 @@ const quizList = [
 
 	{
 		question:
-			"Quel est le nom du personnages principal dans le roman 1984 de George Orwell ?",
+			"Quel est le nom du personnage principal dans le roman 1984 de George Orwell ?",
 		clue: "J'espère que tout le monde a lu ce bouquin !",
 		answer1: ["Winston Churchill", false],
 		answer2: ["Winston Smith", true],
