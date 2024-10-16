@@ -160,71 +160,76 @@ function checkAnswer(answerIndex) {
 		heartsCount--;
 	}
 
-	// let hearthCharacterPoints = heartsCount;
-	// if (!isCorrect) {
-	// 	if (hearthCharacterPoints > 0) {
-	// 		document.querySelectorAll(".redHeart")[hearthCharacterPoints - 1].src =
-	// 			"./Public/Images/heart-black-breack.png";
-	// 		hearthCharacterPoints--;
-	// 	}
-	// }
+	let hearthCharacterPoints = heartsCount;
+	if (!isCorrect) {
+	if (hearthCharacterPoints > 0) {
+	 		document.querySelectorAll(".redHeart")[hearthCharacterPoints - 1].src =
+			"./Public/Images/heart-black-breack.png";
+			hearthCharacterPoints--;
+		}
+	}
 
 	setTimeout(() => {
 		currentQuestionIndex++;
-		if (currentQuestionIndex < quizList.length) {
+		if (currentQuestionIndex < quizList.length && hearthCharacterPoints > 0) {
 			loadQuestion();
 		} else {
-			alert("Quiz terminé !");
-			// à changer !!
+			endGame();
+			
 		}
 	}, 2000);
 }
 
 loadQuestion();
 
-// // Partie Game Over
+ // Partie Game Over
 
-// // obj: Définir 2 types de page (réussite ou échec du quizz)
-// const goodAnswer = "Au";
+ // obj: Définir 2 types de page (réussite ou échec du quizz)
+ /*let endGameVictory = (heartsCount === 0);
+ let endGameDefeated = (hearthCharacterPoints === 0);
+ const endGame = (endGameVictory) || (endGameDefeated);*/
 
-// function answers(answer) {
-// 	// Vider la page
-// 	const main = document.querySelector("main");
-// 	main.textContent = "";
+ function endGame(){
+		 // Vider la page
+		 const main = document.querySelector("main");
+		 main.textContent = "";
+		 
+		 // Création d'une nouvelle bulle
+		 const fullBubble = document.createElement("section");
+		 fullBubble.classList.add("fullBubble");
+		 main.appendChild(fullBubble);
+		 const bubbleQuestion = document.createElement("article");
+		 bubbleQuestion.classList.add("bubbleQuestion");
+ 	fullBubble.appendChild(bubbleQuestion);
+ 	//Aggrandir la bulle (responsive)
 
-// 	// Création d'une nouvelle bulle
-// 	const fullBubble = document.createElement("section");
-// 	fullBubble.classList.add("fullBubble");
-// 	main.appendChild(fullBubble);
-// 	const bubbleQuestion = document.createElement("article");
-// 	bubbleQuestion.classList.add("bubbleQuestion");
-// 	fullBubble.appendChild(bubbleQuestion);
-// 	//Aggrandir la bulle (responsive)
+ 	bubbleQuestion.style.height = "20em";
+ 	bubbleQuestion.style.width = "90%";
+ 	//Style de la bulle (responsive)
+ 	bubbleQuestion.style.margin = "3em";
+ 	bubbleQuestion.style.border = "3px solid";
+ 	bubbleQuestion.style.fontSize = "100%"; // Revoir la size
+	 
+ 	if (heartsCharacterPoints === 0) {
+		 //Inverser: défaite, le joueur n'a plus de coeur
+		 bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
+	}
+	else{
+		// message de victoire
+		bubbleQuestion.textContent = `Bien joué ! Vous avez vaincu la faucheuse !`;
+		//intégration de la faucheuse vaincue
+		const deathPixelOff = document.querySelector("#death");
+		deathPixelOff.src = "Public/Images/deathPixel_off.png";
+		deathPixelOff.alt = "Faucheuse vaincue";
+	}
+	} 
 
-// 	bubbleQuestion.style.height = "20em";
-// 	bubbleQuestion.style.width = "90%";
-// 	//Style de la bulle (responsive)
-// 	bubbleQuestion.style.margin = "3em";
-// 	bubbleQuestion.style.border = "3px solid";
-// 	bubbleQuestion.style.fontSize = "100%"; // Revoir la size
 
-// 	if (answer === goodAnswer) {
-// 		//victoire
-// 		bubbleQuestion.textContent = `Bien joué ! Vous avez vaincu la faucheuse !`;
-// 		//intégration de la faucheuse vaincue
-// 		const deathPixelOff = document.querySelector("#death");
-// 		deathPixelOff.src = "Public/Images/deathPixel_off.png";
-// 		deathPixelOff.alt = "Faucheuse vaincue";
-// 	} else {
-// 		//défaite
-// 		bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
-// 	}
-// }
-
-// // Création d'une boucle pour les boutons
-// document.querySelectorAll(".buttonResponse").forEach((button) => {
-// 	button.addEventListener("click", function () {
-// 		const userAnswer = this.textContent;
-// 		answers(userAnswer);
-// 	});
-// });
+ /*// Création d'une boucle pour les boutons
+ document.querySelectorAll(".buttonResponse").forEach((button) => {
+	 button.addEventListener("click", function () {
+		 const userAnswer = this.textContent;
+ 		answers(userAnswer)
+	});
+});
+}*/
