@@ -224,15 +224,7 @@ loadQuestion();
 		deathPixelOff.src = "Public/Images/deathPixel_off.png";
 		deathPixelOff.alt = "Faucheuse vaincue";
 	}
-	
 	} 
 
 
- /*// Création d'une boucle pour les boutons
- document.querySelectorAll(".buttonResponse").forEach((button) => {
-	 button.addEventListener("click", function () {
-		 const userAnswer = this.textContent;
- 		answers(userAnswer)
-	});
-});
-}*/
+ 
