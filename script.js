@@ -125,6 +125,7 @@ const quizList = [
 
 let currentQuestionIndex = 0;
 let heartsCount = 13;
+let correctAnswersCount = 0;
 
 function loadQuestion() {
 	const questionElement = document.getElementById("question");
@@ -169,17 +170,43 @@ function checkAnswer(answerIndex) {
 	// 	}
 	// }
 
+	if (isCorrect) {
+		correctAnswersCount++; // Incrémenter le compteur si la réponse est correcte
+	}
+
 	setTimeout(() => {
 		currentQuestionIndex++;
 		if (currentQuestionIndex < quizList.length) {
 			loadQuestion();
 		} else {
-			alert("Quiz terminé !");
-			// à changer !!
+			function showPopup() {
+				document.getElementById("popup").style.display = "block"; // Afficher le pop-up
+				document.querySelector(".allResponses").style.display = "none"; // Cacher le quiz
+				document.querySelector(".fullBubble").style.display = "none"; // Cacher le quiz
+				const popupMessage = document.getElementById("popup-message");
+				const totalQuestions = quizList.length;
+				const victoryThreshold = totalQuestions / 2; // Par exemple, gagner si plus de la moitié des réponses sont correctes
+				if (correctAnswersCount > victoryThreshold) {
+					popupMessage.textContent = "Faucheuse vaincue";
+				} else {
+					popupMessage.textContent =
+						"Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !";
+				}
+			}
+			showPopup();
 		}
-	}, 2000);
+	}, 100);
 }
-
+function closePopup() {
+	document.getElementById("popup").style.display = "none"; // Cacher le pop-up
+	document.querySelector(".allResponses").style.display = "flex"; // Réafficher le quiz si nécessaire
+	document.querySelector(".fullBubble").style.display = "flex"; // Réafficher le quiz si nécessaire
+	currentQuestionIndex = 0; // Réinitialiser l'index des questions si vous souhaitez recommencer
+	heartsCount = 13; // Réinitialiser le nombre de cœurs
+	hearthCharacterPoints = heartsCount; // Réinitialiser les cœurs de personnage
+	loadQuestion(); // Recharger la première question
+}
+document.querySelector(".close").addEventListener("click", closePopup);
 loadQuestion();
 
 // // Partie Game Over
