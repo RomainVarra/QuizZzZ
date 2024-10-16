@@ -121,6 +121,7 @@ const quizList = [
 	},
 ];
 
+// Barres de vie
 let hearthDeathPoints = 10;
 let hearthCharacterPoints = 3;
 
