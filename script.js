@@ -125,7 +125,6 @@ const quizList = [
 
 let currentQuestionIndex = 0;
 let heartsCount = 13;
-let correctAnswersCount = 0;
 
 function loadQuestion() {
 	const questionElement = document.getElementById("question");
