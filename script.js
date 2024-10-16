@@ -121,8 +121,29 @@ const quizList = [
 	},
 ];
 
-let hearthDeathPoints = 10;
-let hearthCharacterPoints = 3;
+///////////////////////////////////////////////////////////////
+
+let currentQuestionIndex = 0;
+let heartsCount = 13;
+
+function loadQuestion() {
+	const questionElement = document.getElementById("question");
+	const clueElement = document.getElementById("clue");
+	const buttons = document.querySelectorAll(".buttonResponse");
+
+	questionElement.textContent = quizList[currentQuestionIndex].question;
+	clueElement.textContent = quizList[currentQuestionIndex].clue;
+
+	buttons.forEach((button) => {
+		button.style.backgroundColor = "";
+	});
+
+	buttons.forEach((button, index) => {
+		const answerIndex = `answer${index + 1}`;
+		button.textContent = quizList[currentQuestionIndex][answerIndex][0];
+		button.dataset.correct = quizList[currentQuestionIndex][answerIndex][1];
+	});
+}
 
 function checkAnswer(answerIndex) {
 	const buttons = document.querySelectorAll(".buttonResponse");
