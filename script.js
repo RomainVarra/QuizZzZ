@@ -148,6 +148,8 @@ function loadQuestion() {
 
 const deathHearts = document.querySelectorAll(".blackHeart");
 const characterHearts = document.querySelectorAll(".redHeart");
+let hearthCharacterPoints = redheartsCount;
+
 function checkAnswer(answerIndex) {
 	const buttons = document.querySelectorAll(".buttonResponse");
 	const selectedButton = buttons[answerIndex];
@@ -161,7 +163,6 @@ function checkAnswer(answerIndex) {
 		heartsCount--;
 	}
 
-	let hearthCharacterPoints = redheartsCount;
 	if (!isCorrect) {
 		if (hearthCharacterPoints > 0) {
 			document.querySelectorAll(".redHeart")[hearthCharacterPoints - 1].src =
@@ -210,7 +211,7 @@ function endGame() {
 	bubbleQuestion.style.border = "3px solid";
 	bubbleQuestion.style.fontSize = "100%"; // Revoir la size
 
-	if (heartsCharacterPoints === 0) {
+	if (hearthCharacterPoints === 0) {
 		//Inverser: défaite, le joueur n'a plus de coeur
 		bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
 	} else {
@@ -222,12 +223,3 @@ function endGame() {
 		deathPixelOff.alt = "Faucheuse vaincue";
 	}
 }
-
-/*// Création d'une boucle pour les boutons
- document.querySelectorAll(".buttonResponse").forEach((button) => {
-	 button.addEventListener("click", function () {
-		 const userAnswer = this.textContent;
- 		answers(userAnswer)
-	});
-});
-}*/
