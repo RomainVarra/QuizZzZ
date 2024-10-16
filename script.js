@@ -222,6 +222,7 @@ loadQuestion();
 		deathPixelOff.src = "Public/Images/deathPixel_off.png";
 		deathPixelOff.alt = "Faucheuse vaincue";
 	}
+	
 	} 
 
 
