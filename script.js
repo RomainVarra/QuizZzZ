@@ -1,6 +1,6 @@
 const quizList = [
 	{
-		question: "Combien de planètes orbittent autour du soleil ? ",
+		question: "Combien de planètes orbitent autour du soleil ? ",
 		clue: "On parle bien de planètes !",
 		answer1: ["12", false],
 		answer2: ["9", false],
@@ -124,85 +124,86 @@ const quizList = [
 let hearthDeathPoints = 10;
 let hearthCharacterPoints = 3;
 
-
-
-function checkAnswer(answer) {
+function checkAnswer(answerIndex) {
 	const buttons = document.querySelectorAll(".buttonResponse");
+	const selectedButton = buttons[answerIndex];
+	const isCorrect = selectedButton.dataset.correct === "true";
 	const deathHearts = document.querySelectorAll(".blackHeart");
 	const characterHearts = document.querySelectorAll(".redHeart");
 
-	buttons.forEach((button) => {
-		button.disabled = true;
+	selectedButton.style.backgroundColor = isCorrect ? "green" : "red";
 
-		if (button.textContent === answer) {
-			if (answer === "8") {
-				button.style.backgroundColor = "green";
-			}
-			if (answer !== "8") {
-				button.style.backgroundColor = "red";
-				if (hearthCharacterPoints > 0) {
-					characterHearts[hearthCharacterPoints - 1].src =
-						"./Public/Images/heart-black-breack.png";
-					hearthCharacterPoints--;
-				}
-			}
+	if (heartsCount > 0) {
+		const deathHearts = document.querySelectorAll(".blackHeart");
+		deathHearts[heartsCount - 1].src = "./Public/Images/heart-black-breack.png";
+		heartsCount--;
+	}
+
+	// let hearthCharacterPoints = heartsCount;
+	// if (!isCorrect) {
+	// 	if (hearthCharacterPoints > 0) {
+	// 		document.querySelectorAll(".redHeart")[hearthCharacterPoints - 1].src =
+	// 			"./Public/Images/heart-black-breack.png";
+	// 		hearthCharacterPoints--;
+	// 	}
+	// }
+
+	setTimeout(() => {
+		currentQuestionIndex++;
+		if (currentQuestionIndex < quizList.length) {
+			loadQuestion();
 		} else {
-			if (button.textContent !== "8") {
-				button.style.backgroundColor = "red";
-			}
+			alert("Quiz terminé !");
+			// à changer !!
 		}
-	});
-
-	if (hearthDeathPoints > 0) {
-		deathHearts[hearthDeathPoints - 1].src =
-			"./Public/Images/heart-black-breack.png";
-		hearthDeathPoints--;
-	}
+	}, 2000);
 }
 
-// Partie Game Over
+loadQuestion();
 
-// obj: Définir 2 types de page (réussite ou échec du quizz)
-const goodAnswer = "8";
+// // Partie Game Over
 
-function answers(answer) {
-	// Vider la page
-	const main = document.querySelector("main");
-	main.textContent = "";
+// // obj: Définir 2 types de page (réussite ou échec du quizz)
+// const goodAnswer = "Au";
 
-	// Création d'une nouvelle bulle
-	const fullBubble = document.createElement("section");
-	fullBubble.classList.add("fullBubble");
-	main.appendChild(fullBubble);
-	const bubbleQuestion = document.createElement("article");
-	bubbleQuestion.classList.add("bubbleQuestion");
-	fullBubble.appendChild(bubbleQuestion);
-	//Aggrandir la bulle (responsive)
+// function answers(answer) {
+// 	// Vider la page
+// 	const main = document.querySelector("main");
+// 	main.textContent = "";
 
-	bubbleQuestion.style.height = "20em";
-	bubbleQuestion.style.width = "90%";
-	//Style de la bulle (responsive)
-	bubbleQuestion.style.margin = "3em";
-	bubbleQuestion.style.border = "3px solid";
-	bubbleQuestion.style.fontSize = "100%"; // Revoir la size
+// 	// Création d'une nouvelle bulle
+// 	const fullBubble = document.createElement("section");
+// 	fullBubble.classList.add("fullBubble");
+// 	main.appendChild(fullBubble);
+// 	const bubbleQuestion = document.createElement("article");
+// 	bubbleQuestion.classList.add("bubbleQuestion");
+// 	fullBubble.appendChild(bubbleQuestion);
+// 	//Aggrandir la bulle (responsive)
 
-	if (answer === goodAnswer) {
-		//victoire
-		bubbleQuestion.textContent = `Bien joué ! Vous avez vaincu la faucheuse !`;
-		//intégration de la faucheuse vaincue
-		const deathPixelOff = document.querySelector("#death");
-		deathPixelOff.src = "Public/Images/deathPixel_off.png";
-		deathPixelOff.alt = "Faucheuse vaincue";
-	} else {
-		//défaite
-		bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
-	}
-}
+// 	bubbleQuestion.style.height = "20em";
+// 	bubbleQuestion.style.width = "90%";
+// 	//Style de la bulle (responsive)
+// 	bubbleQuestion.style.margin = "3em";
+// 	bubbleQuestion.style.border = "3px solid";
+// 	bubbleQuestion.style.fontSize = "100%"; // Revoir la size
 
-// Création d'une boucle pour les boutons
-document.querySelectorAll(".buttonResponse").forEach((button) => {
-	button.addEventListener("click", function () {
-		const userAnswer = this.textContent;
-		answers(userAnswer);
-	});
-});
+// 	if (answer === goodAnswer) {
+// 		//victoire
+// 		bubbleQuestion.textContent = `Bien joué ! Vous avez vaincu la faucheuse !`;
+// 		//intégration de la faucheuse vaincue
+// 		const deathPixelOff = document.querySelector("#death");
+// 		deathPixelOff.src = "Public/Images/deathPixel_off.png";
+// 		deathPixelOff.alt = "Faucheuse vaincue";
+// 	} else {
+// 		//défaite
+// 		bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
+// 	}
+// }
+
+// // Création d'une boucle pour les boutons
+// document.querySelectorAll(".buttonResponse").forEach((button) => {
+// 	button.addEventListener("click", function () {
+// 		const userAnswer = this.textContent;
+// 		answers(userAnswer);
+// 	});
+// });
