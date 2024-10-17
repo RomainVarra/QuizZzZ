@@ -192,9 +192,9 @@ function checkAnswer(answerIndex) {
 	}
 
 	if (!isCorrect) {
-        if (hearthCharacterPoints > 0) {
-	 		document.querySelectorAll(".redHeart")[hearthCharacterPoints - 1].src =
-			"./Public/Images/heart-black-breack.png";
+		if (hearthCharacterPoints > 0) {
+			document.querySelectorAll(".redHeart")[hearthCharacterPoints - 1].src =
+				"./Public/Images/heart-black-breack.png";
 			hearthCharacterPoints--;
 		}
 	}
@@ -205,7 +205,6 @@ function checkAnswer(answerIndex) {
 			loadQuestion();
 		} else {
 			endGame();
-			
 		}
 	}, 1000);
 }
@@ -214,19 +213,19 @@ function checkAnswer(answerIndex) {
 	
 	// obj: Définir 2 types de page (réussite ou échec du quizz)
 
- function endGame(){
-		 // Vider la page
-		 const main = document.querySelector("main");
-		 main.textContent = "";
-		 
-		 // Création d'une nouvelle bulle
-		 const fullBubble = document.createElement("section");
-		 fullBubble.classList.add("fullBubble");
-		 main.appendChild(fullBubble);
-		 const bubbleQuestion = document.createElement("article");
-		 bubbleQuestion.classList.add("bubbleQuestion");
- 	fullBubble.appendChild(bubbleQuestion);
- 	//Aggrandir la bulle (responsive)
+function endGame() {
+	// Vider la page
+	const main = document.querySelector("main");
+	main.textContent = "";
+
+	// Création d'une nouvelle bulle
+	const fullBubble = document.createElement("section");
+	fullBubble.classList.add("fullBubble");
+	main.appendChild(fullBubble);
+	const bubbleQuestion = document.createElement("article");
+	bubbleQuestion.classList.add("bubbleQuestion");
+	fullBubble.appendChild(bubbleQuestion);
+	//Aggrandir la bulle (responsive)
 
  	bubbleQuestion.style.height = "20em";
  	bubbleQuestion.style.width = "90%";
