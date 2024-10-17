@@ -213,9 +213,6 @@ function checkAnswer(answerIndex) {
 	// Partie Game Over
 	
 	// obj: Définir 2 types de page (réussite ou échec du quizz)
- /*let endGameVictory = (heartsCount === 0);
- let endGameDefeated = (hearthCharacterPoints === 0);
- const endGame = (endGameVictory) || (endGameDefeated);*/
 
  function endGame(){
 		 // Vider la page
