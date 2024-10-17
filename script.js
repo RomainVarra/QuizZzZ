@@ -127,6 +127,33 @@ let currentQuestionIndex = 0;
 let heartsCount = 13;
 let redheartsCount = 3;
 
+
+
+const multiplyBlackHeart = document.querySelector(".blackHeartClass");
+function createdBlackHearts() {
+	const blackHeart = document.createElement('img');
+	blackHeart.src = "./Public/Images/heart-black-full.png" ;
+	blackHeart.alt = "petit coeur noir";
+	blackHeart.classList.add ("blackHeart");
+	multiplyBlackHeart.appendChild(blackHeart);
+	}
+
+	for(let i=0; i < heartsCount -1; i++){
+	createdBlackHearts();
+	}
+
+const multiplyRedHeart = document.querySelector(".redHeartClass")
+function createdRedHearts(){
+const redHeart = document.createElement('img');
+redHeart.src= "./Public/Images/heart-red-full.png";
+redHeart.alt = "petit coeur rouge";
+redHeart.classList.add ("redHeart");
+multiplyRedHeart.appendChild(redHeart);
+}
+for(let i=0; i < redheartsCount -1; i++){
+	createdRedHearts();
+	}
+
 function loadQuestion() {
 	const questionElement = document.getElementById("question");
 	const clueElement = document.getElementById("clue");
@@ -149,6 +176,7 @@ function loadQuestion() {
 const deathHearts = document.querySelectorAll(".blackHeart");
 const characterHearts = document.querySelectorAll(".redHeart");
 let hearthCharacterPoints = redheartsCount;
+
 
 function checkAnswer(answerIndex) {
 	const buttons = document.querySelectorAll(".buttonResponse");
@@ -182,11 +210,9 @@ function checkAnswer(answerIndex) {
 	}, 1000);
 }
 
-loadQuestion();
-
- // Partie Game Over
-
- // obj: Définir 2 types de page (réussite ou échec du quizz)
+	// Partie Game Over
+	
+	// obj: Définir 2 types de page (réussite ou échec du quizz)
  /*let endGameVictory = (heartsCount === 0);
  let endGameDefeated = (hearthCharacterPoints === 0);
  const endGame = (endGameVictory) || (endGameDefeated);*/
@@ -215,7 +241,13 @@ loadQuestion();
  	if (hearthCharacterPoints === 0) {
 		 //Inverser: défaite, le joueur n'a plus de coeur
 		 bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
-	}
+		 /*const buttonStart = document.createElement('button');
+		 buttonStart.classList.add('buttonResponse');
+		 buttonStart.classList.add('bubbleQuestion');
+		 main.appendChild(buttonStart);
+		 buttonStart.textContent = "Recommencer";
+		 buttonStart.addEventListener("click", location.reload());*/
+		}
 	else{
 		// message de victoire
 		bubbleQuestion.textContent = `Bien joué ! Vous avez vaincu la faucheuse !`;
@@ -224,7 +256,7 @@ loadQuestion();
 		deathPixelOff.src = "Public/Images/deathPixel_off.png";
 		deathPixelOff.alt = "Faucheuse vaincue";
 	}
-	} 
+} 
 
+loadQuestion();
 
- 
