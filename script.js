@@ -127,6 +127,18 @@ let currentQuestionIndex = 0;
 let heartsCount = 13;
 let redheartsCount = 3;
 
+window.onload = function () {
+	document.getElementById("popup").style.display = "flex";
+};
+
+document.getElementById("close-popup").addEventListener("click", () => {
+	document.getElementById("popup").style.display = "none";
+	document.getElementsByClassName("bubbleQuestion").style.display = "flex";
+	loadQuestion(questions[currentQuestionIndex]);
+});
+
+///////////////////////////////////////////////////////////////
+
 function loadQuestion() {
 	const questionElement = document.getElementById("question");
 	const clueElement = document.getElementById("clue");
