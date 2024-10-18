@@ -103,6 +103,9 @@ h1 {
 	height: 100%;
 	overflow: auto;
 	background-color: rgba(0, 0, 0, 0.6);
+	@media screen and (min-width: 800px) {
+		height: 45em;
+	}
 }
 
 .popup-content {
@@ -113,6 +116,12 @@ h1 {
 	width: 80%;
 	max-width: 600px;
 	border-radius: 10px;
+}
+
+.textContainer,
+.openText {
+	padding: 1em;
+	font-size: 1.1em;
 }
 .bubbleQuestion {
 	background: var(--light-color);
