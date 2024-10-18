@@ -244,6 +244,14 @@ function endGame() {
 	if (hearthCharacterPoints === 0) {
 		//Inverser: défaite, le joueur n'a plus de coeur
 		bubbleQuestion.textContent = `Hahaha ! La faucheuse t'a vaincu ! Viens avec moi en enfer, ou retente ta chance !`;
+		//intégration de la faucheuse conquérante
+		const deathPixelWin = document.querySelector("#death");
+		deathPixelWin.src = "Public/Images/deathWin.png";
+		deathPixelWin.alt = "Faucheuse conquérante";
+		//intégration du personnage mort
+		const charaLose = document.querySelector("#character");
+		charaLose.src = "Public/Images/chara_2gameover.png";
+		charaLose.alt = "Joueur coupé en deux";
 		/*const buttonStart = document.createElement('button');
 		 buttonStart.classList.add('buttonResponse');
 		 buttonStart.classList.add('bubbleQuestion');
@@ -252,11 +260,15 @@ function endGame() {
 		 buttonStart.addEventListener("click", location.reload());*/
 	} else {
 		// message de victoire
-		bubbleQuestion.textContent = `Bien joué ! Vous avez vaincu la faucheuse !`;
+		bubbleQuestion.textContent = "Bien joué ! Vous avez vaincu la faucheuse !";
 		//intégration de la faucheuse vaincue
 		const deathPixelOff = document.querySelector("#death");
-		deathPixelOff.src = "Public/Images/deathPixel_off.png";
+		deathPixelOff.src = "Public/Images/deathLose.png";
 		deathPixelOff.alt = "Faucheuse vaincue";
+		//intégration du personnage vainqueur
+		const charaWin = document.querySelector("#character");
+		charaWin.src = "Public/Images/chara_2win.png";
+		charaWin.alt = "Joueur vainqueur";
 	}
 }
 
